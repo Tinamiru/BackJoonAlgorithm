@@ -1,2 +1,8 @@
 # 프로젝트 제외 경로
 /bin/
+/.settings/
+/.settings/
+/.idea/
+.classpath
+.project
+BackJoonAlgorithm.iml
