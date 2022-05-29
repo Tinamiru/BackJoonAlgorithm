@@ -9,21 +9,25 @@ public class BaekJoon1157 {
 //	단, 대문자와 소문자를 구분하지 않는다.
 
 	public static void main(String[] args) {
-		int alphNum;
-
-		int[] alphabet = new int[24];
+		int[] alphabet = new int[26];
 		Scanner sc = new Scanner(System.in);
-		
-		String str = sc.nextLine();
-		String upper = str.toUpperCase();
-		
-		
-		for (int i = 0; i < str.length(); i++) {
-			alphabet[i] = str.charAt(i);
-		}
-		for (int i : alphabet) {
-			System.out.print(i + " ");
-		}
+		String input = sc.next();
+		String str = input.toUpperCase();
 
+		for (int i = 0; i < str.length(); i++) {
+			alphabet[str.charAt(i) - 'A']++;
+		}
+		
+		char c = ' ';
+		int maxChar = -1;
+		for (int i = 0; i < alphabet.length; i++) {
+			if (alphabet[i] > maxChar) {
+				maxChar = alphabet[i];
+				c = (char) (i + 65);
+			} else if (alphabet[i] == maxChar) {
+				c = '?';
+			}
+		}
+		System.out.println(c);
 	}
 }
